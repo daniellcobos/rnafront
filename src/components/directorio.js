@@ -14,7 +14,7 @@ const Directorio = (props) =>{
 const [directorio,setDirectorio] = useState([])
 const [mainData,setMainData] = useState([])
     useEffect(() => {
-    fetch('http://localhost:8000/excel/directorio')
+    fetch('http://159.89.237.193/bases/directorio')
   .then(response => response.json())
   .then((data) => { 
     setDirectorio(data)
@@ -59,12 +59,12 @@ function handleChangeCat(event) {
         <label htmlFor="crs">Filtrar por Region:</label>
         <select  className="form-control" id="crs" onChange={handleChangeRegion}>
             {ConReg.map(
-                (row) => {return(<option   value={row}>{row}</option>)}
+                (row) => {return(<option  key={row} value={row}>{row}</option>)}
             )} 
         </select>
         </div>
          
-         <div>
+         <div className="container">
              <table className="table table-striped table-bordered">
                  <thead className="thead-dark">
                      <tr scope="row">
@@ -85,7 +85,7 @@ function handleChangeCat(event) {
                 
                 return(<tr key= {row.Codigo} scope="row">
 
-                    <td><Link to={"avaluador/" + row.RNA.RNA}>{row.RNA.Nombre} {row.RNA.Apellidos}</Link></td>
+                    <td><Link to={"../avaluador/" + row.RNA.RNA}>{row.RNA.Nombre} {row.RNA.Apellidos}</Link></td>
                     <td>{row.RNA.Ciudad}</td>
                     <td>{row.RNA.ConReg}</td>
                     <td>{ row.Codigo}</td>

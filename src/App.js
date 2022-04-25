@@ -5,6 +5,7 @@ import Avaluador from "./components/avaluador"
 import {Route, Link, Routes} from 'react-router-dom';
 import Directorio from './components/directorio';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/home';
 
 
 function App() {
@@ -21,11 +22,11 @@ function App() {
       </header>
       <div >
       <Routes>
-            <Route exact path="/" element ={<Directorio/>}>
+            <Route exact path="/" element ={<Home/>}>
                
               </Route>
               <Route exact path="avaluador/:id" element =  {<Avaluador></Avaluador>}></Route>
-              
+              <Route exact path="/Directorio" element ={<Directorio/>}></Route>
         </Routes>
       </div>
       
